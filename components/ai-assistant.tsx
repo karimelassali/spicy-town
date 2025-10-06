@@ -18,7 +18,7 @@ export default function AIAssistant() {
   const [isLoading, setIsLoading] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [userSentiment, setUserSentiment] = useState("neutral");
-  const [conversationContext, setConversationContext] = useState([]);
+  const [conversationContext, setConversationContext] = useState<string[]>([]);
   const [showSuggestedActions, setShowSuggestedActions] = useState(true);
 
   const developerInstructions = `
@@ -241,13 +241,13 @@ export default function AIAssistant() {
     "2025",
   ];
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const highlightWords = (text) => {
+  const highlightWords = (text: string) => {
     if (!text) return text;
     let highlightedText = text;
     const sortedWords = [...highlightedWords].sort(
@@ -282,11 +282,11 @@ export default function AIAssistant() {
         content:
           "👋 **Benvenuto a Spicy Town CSG!** 🌶️\n\n🍽️ Authentic Pakistani Cuisine | ✅ 100% Halal\n📅 Opening September 20, 2025\n\n💬 **What would you like to know?**",
         timestamp: new Date(),
-      },
+      } as Message,
     ]);
   }, []);
 
-  const generateAIResponse = async (userMessage) => {
+  const generateAIResponse = async (userMessage: string) => {
     setIsLoading(true);
     const sentiment = analyzeSentiment(userMessage);
     setUserSentiment(sentiment);
@@ -363,7 +363,7 @@ CRITICAL INSTRUCTIONS:
 
       return aiResponse;
     } catch (error) {
-      if (error.name === "AbortError") {
+      if (error instanceof Error && error.name === "AbortError") {
         return "⏱️ I'm taking longer than usual. Please try again!";
       }
       console.error("AI Response Error:", error);
@@ -373,7 +373,7 @@ CRITICAL INSTRUCTIONS:
     }
   };
 
-  const getFallbackResponse = (userMessage) => {
+  const getFallbackResponse = (userMessage: string) => {
     const lowerMessage = userMessage.toLowerCase();
     const sentiment = analyzeSentiment(userMessage);
 
@@ -433,7 +433,7 @@ CRITICAL INSTRUCTIONS:
     setInputValue("");
     setShowSuggestedActions(false);
 
-    const userMsg = {
+    const userMsg: Message = {
       id: Date.now(),
       type: "user",
       content: userMessage,
@@ -449,7 +449,7 @@ CRITICAL INSTRUCTIONS:
     try {
       const aiResponse = await generateAIResponse(userMessage);
 
-      const botMsg = {
+      const botMsg: Message = {
         id: Date.now() + 1,
         type: "bot",
         content: aiResponse,
@@ -459,7 +459,7 @@ CRITICAL INSTRUCTIONS:
       setShowSuggestedActions(true);
     } catch (error) {
       console.error("Error generating response:", error);
-      const errorMsg = {
+      const errorMsg: Message = {
         id: Date.now() + 1,
         type: "bot",
         content:
@@ -472,7 +472,7 @@ CRITICAL INSTRUCTIONS:
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -483,7 +483,7 @@ CRITICAL INSTRUCTIONS:
     setIsOpen(!isOpen);
   };
 
-  const handleSuggestedAction = (value) => {
+  const handleSuggestedAction = (value: string) => {
     setInputValue(value);
     // Auto-send after a short delay for better UX
     setTimeout(() => {
