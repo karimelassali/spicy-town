@@ -173,7 +173,7 @@ export default function AIAssistant() {
   };
 
   // Sentiment analysis
-  const analyzeSentiment = (text) => {
+  const analyzeSentiment = (text: string) => {
     const negativeWords = [
       "bad",
       "terrible",
