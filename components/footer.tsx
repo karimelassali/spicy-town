@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <h3 className="text-2xl font-serif font-bold mb-6 text-primary">
-              Trattoria
+              Spicy Town
             </h3>
             <p className="text-background/80 leading-relaxed text-pretty">
               {t.hero.subtitle}
@@ -50,7 +50,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-background/20 pt-8 text-center text-background/60">
-          <p>© 2025 Trattoria. {t.footer.rights}</p>
+          <p>© 2025 Spicy Town. {t.footer.rights}</p>
         </div>
       </div>
     </footer>

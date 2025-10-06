@@ -57,7 +57,16 @@ export function Navbar() {
               </motion.a>
             ))}
             <LanguageDropdown />
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={(e) => {
+                e.preventDefault();
+                const reservationSection = document.getElementById('reservation');
+                if (reservationSection) {
+                  reservationSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               {t.nav.reservation}
             </Button>
           </div>
@@ -94,7 +103,16 @@ export function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
+              <Button 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 w-full"
+                onClick={() => {
+                  setIsOpen(false);
+                  const reservationSection = document.getElementById('reservation');
+                  if (reservationSection) {
+                    reservationSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 {t.nav.reservation}
               </Button>
             </div>

@@ -122,7 +122,7 @@ export default function BookTableSection() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted">
+    <section id="reservation" className="py-24 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 text-balance">

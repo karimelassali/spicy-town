@@ -208,7 +208,7 @@ export const translations = {
       chef2: {
         title: "Chef Esecutivo e Specialista di Curry",
         description:
-          "Chef Aisha è rinomata per la sua maestria nei curry tradizionali e nelle specialità a cottura lenta. La sua passione per le spezie autentiche e le ricette di famiglia crea esperienze culinarie indimenticabili che ti trasportano direttamente in Pakistan.",
+          "Chef Ali è rinomato per la sua maestria nei curry tradizionali e nelle specialità a cottura lenta. La sua passione per le spezie autentiche e le ricette di famiglia crea esperienze culinarie indimenticabili che ti trasportano direttamente in Pakistan",
       },
     },
     gallery: {
@@ -280,6 +280,143 @@ export const translations = {
       halal: "100% Certificato Halal",
     },
   },
+  ur: {
+    nav: {
+      home: "ہوم",
+      menu: "مینو",
+      about: "ہم about",
+      gallery: "گیلری",
+      contact: "رابطہ",
+      reservation: "میز کو محفوظ کریں",
+    },
+    hero: {
+      title: "تیز مصالحہ ٹاؤن CSG",
+      subtitle: "دل کے اٹلی میں اصل پاکستانی پکوان",
+      description:
+        "روایتی پاکستانی پکوان کے میٹھے ذائقے اور عطریندہ مصالحے تجربہ کریں",
+      cta: "مینو دریافت کریں",
+      halal: "100% حلال سرٹیفکیٹ",
+      opening: "گرینڈ اوپننگ: 20 ستمبر، 2025",
+    },
+    dishes: {
+      title: "ہمارے دستخط کے پکوان",
+      subtitle: "شوق اور پریمیم اجزاء کے ساتھ تیار کیا گیا اصل ذائقہ",
+      dish1: {
+        name: "چکن ٹکا مسالا",
+        description:
+          "میٹھے چکن کو مصالحے میں میرینیٹ کیا گیا، گرل کیا گیا اور کریمی ٹماٹر ساس میں دھیرے سے پکایا گیا",
+        price: "€12.00",
+      },
+      dish2: {
+        name: "بھیڑ کا گوشت بریانی",
+        description:
+          "مہنگی جسمتی چاول کو لذیذ بھیڑ کے گوشت اور عطریندہ مصالحے کے ساتھ پرت دار بنایا گیا",
+        price: "€15.00",
+      },
+      dish3: {
+        name: "مکھن چکن",
+        description:
+          "چکن کے ٹکڑوں اور میٹھے مصالحے کے ساتھ ٹماٹر پر مبنی کریمی کڑی",
+        price: "€13.00",
+      },
+    },
+    menu: {
+      title: "ہمارا مکمل مینو",
+      subtitle: "ہمارے اصل پاکستانی پکوان کو دریافت کریں",
+      antipasto: "اپیٹائز",
+      grigliata: "تندور گرل",
+      piatti_carne: "گوشت کے پکوان",
+      piatti_veg: "سبزیوں کے پکوان",
+      viewFull: "مکمل مینو دیکھیں",
+    },
+    chef: {
+      title: "ہمارے مالک سے ملو",
+      name: "عبدالرحمن گجر",
+      subtitle: "اٹلی میں اصل پاکستانی ذائقے لاتے ہوئے",
+      description:
+        "اصل پاکستانی پکوان کے شوق اور کلینکل ماہری کے ساتھ، عبدالرحمن گجر کیسٹل سین گیووانی میں پاکستانی پکوان کی امیر روایات لاتے ہیں. ہر ڈش کو محبت، پریمیم اجزاء، اور نسلوں سے تیار کی گئی روایتی وضیفے کے ساتھ تیار کیا جاتا ہے.",
+    },
+    chefs: {
+      title: "ہمارے ماسٹر شیف سے ملو",
+      subtitle: "کلینکل ماہرین جو آپ کی میز پر اصل پاکستانی ذائقے لاتے ہیں",
+      chef1: {
+        title: "ہیڈ شیف اور تندور ماہر",
+        description:
+          "روایتی پاکستانی پکوان میں 15 سال سے زائد کا تجربہ کے ساتھ، شیف عبداللہ تندور کی ڈشز اور عطریندہ بریانی میں ماہر ہیں. لاہور کے بہترین ریسٹورانٹس میں تربیت یافتہ، وہ ہر ڈش میں اصل ذائقے اور تکنیکس لاتے ہیں.",
+      },
+      chef2: {
+        title: "ایگزیکٹو شیف اور کڑی ماہر",
+        description:
+          "شیف علی کو روایتی کڑیوں اور سستی تیار کردہ خصوصیات میں مہارت کے لئے جانا جاتا ہے. اصل مصالحے اور خاندانی وضیفوں کے لئے ان کا جوش، لاتعداد تجربے کے ساتھ بے مثال کھانے کا تجربہ بناتا ہے جو آپ کو سیدھے پاکستان میں لے جاتا ہے.",
+      },
+    },
+    gallery: {
+      title: "ہمارا ریستوراں",
+      subtitle: "پاکستانی مہمان نوازی کے ساتھ ایک گرم اور دعوت دینے والا ماحول",
+    },
+    experience: {
+      title: "تیز مصالحہ ٹاؤن تجربہ",
+      subtitle: "صرف کھانا سے زیادہ - یہ پاکستان کی طرف ایک سفر ہے",
+      feature1: {
+        title: "100% حلال سرٹیفکیٹ",
+        description: "سرٹیفکیٹ شدہ اجزاء کے ساتھ سخت حلال ہدایات",
+      },
+      feature2: {
+        title: "اصل مصالحے",
+        description: "پاکستان سے درآمد کیے گئے پریمیم مصالحے",
+      },
+      feature3: {
+        title: "روایتی وضیفے",
+        description: "نسلوں کے بعد سے تیار کی گئی خاندانی وضیفے",
+      },
+      feature4: {
+        title: "روزانہ تازہ",
+        description: "تمام ڈشز کو آرڈر پر تازہ تیار کیا جاتا ہے",
+      },
+    },
+    info: {
+      title: "ہم سے ملو",
+      location: "جگہ",
+      address: "کورسو جیاکومو میٹوٹی، 44",
+      city: "کیسٹل سین گیووانی، اٹلی",
+      hours: "کھلنے کے اوقات",
+      weekdays: "پیر - ہفتہ: 11:00 صبح - 11:00 شام",
+      weekend: "اتوار: بند ہے",
+      contact: "ہم سے رابطہ کریں",
+      phone: "+39 3510505298",
+      email: "spicytowncsg@gmail.com",
+      instagram: "@spicytown_csg",
+    },
+    reservation: {
+      title: "ابھی آرڈر کریں",
+      subtitle: "ایک بے مثال کھانے کا تجربہ کے لئے ہمارے ساتھ شامل ہوں",
+      name: "مکمل نام",
+      email: "ای میل",
+      phone: "فون نمبر",
+      date: "تاریخ",
+      time: "وقت",
+      guests: "مہمانوں کی تعداد",
+      message: "خصوصی درخواستیں",
+      submit: "ابھی بک کریں",
+      opening: "20 ستمبر 2025 کو کھل رہا ہے",
+    },
+    video: {
+      title: "ہماری کچن کا تجربہ کریں",
+      subtitle: "دیکھیں کہ ہمارے شیف کیسے اصل پاکستانی ڈشز تیار کرتے ہیں",
+      description:
+        "سیخ ٹنڈور سے لے کر عطریندہ کڑیوں تک، ہمیں نظرانہ دیں جس کلہری اور جosh کو ہم ہر ڈش میں ڈالتے ہیں. ہماری کچن وہ جگہ ہے جہاں روایت کی عمدگی سے ملاقات ہوتی ہے.",
+    },
+    footer: {
+      tagline: "اصل پاکستانی پکوان",
+      hours: "کھلنے کے اوقات",
+      weekdays: "پیر - ہفتہ: 11:00 صبح - 11:00 شام",
+      weekend: "اتوار: بند ہے",
+      contact: "ہم سے رابطہ کریں",
+      address: "کورسو جیاکومو میٹوٹی، 44، کیسٹل سین گیووانی",
+      rights: "تمام حقوق محفوظ ہیں",
+      halal: "100% حلال سرٹیفکیٹ",
+    },
+  },
 };
 
-export type Language = "en" | "it";
+export type Language = "en" | "it" | "ur";
