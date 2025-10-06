@@ -1,18 +1,22 @@
-"use client"
+"use client";
 
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import { useLanguage } from "@/hooks/use-language"
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-6 text-primary">Trattoria</h3>
-            <p className="text-background/80 leading-relaxed text-pretty">{t.hero.subtitle}</p>
+            <h3 className="text-2xl font-serif font-bold mb-6 text-primary">
+              Trattoria
+            </h3>
+            <p className="text-background/80 leading-relaxed text-pretty">
+              {t.hero.subtitle}
+            </p>
           </div>
 
           <div>
@@ -39,7 +43,7 @@ export function Footer() {
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-primary" />
-                info@trattoria.com
+                spicytowncsg@gmail.com
               </p>
             </div>
           </div>
@@ -50,5 +54,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
