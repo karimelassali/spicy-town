@@ -51,6 +51,17 @@ export function Footer() {
 
         <div className="border-t border-background/20 pt-8 text-center text-background/60">
           <p>© 2025 Spicy Town. {t.footer.rights}</p>
+          <p className="text-sm text-background/50 mt-2">
+            Powered by{" "}
+            <a
+              href="https://www.instagram.com/karim_el_assali/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Karim El Assali
+            </a>
+          </p>
         </div>
       </div>
     </footer>
