@@ -30,7 +30,7 @@ export function Navbar() {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <Image
+            <img
               src="/premuim_logo.png"
               alt="Spicy Town Logo"
               width={50}
