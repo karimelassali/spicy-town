@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/hooks/use-language";
+import Image from "next/image";
 
 export function DishesSection() {
   const { t } = useLanguage();
@@ -16,7 +17,7 @@ export function DishesSection() {
     {
       name: t.dishes.dish2.name,
       description: t.dishes.dish2.description,
-      image: "limb_biryani.jpeg",
+      image: "/limb_biryani.jpeg",
     },
     {
       name: t.dishes.dish3.name,
@@ -45,9 +46,11 @@ export function DishesSection() {
               className="overflow-hidden border-border hover:shadow-lg transition-shadow"
             >
               <div className="aspect-square overflow-hidden">
-                <img
+                <Image
                   src={dish.image || "/placeholder.svg"}
                   alt={dish.name}
+                  width={500}
+                  height={500}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>

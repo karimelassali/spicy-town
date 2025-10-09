@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Sparkles, ChefHat, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 interface Message {
   id: number;
@@ -17,7 +18,7 @@ export default function AIAssistant() {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const [userSentiment, setUserSentiment] = useState("neutral");
+
   const [conversationContext, setConversationContext] = useState<string[]>([]);
   const [showSuggestedActions, setShowSuggestedActions] = useState(true);
 
@@ -114,7 +115,6 @@ export default function AIAssistant() {
 
   // Enhanced context-aware suggested actions
   const getSuggestedActions = () => {
-    const lastMessage = messages[messages.length - 1];
     const lastUserMessage = messages
       .filter((m) => m.type === "user")
       .slice(-1)[0];
@@ -289,7 +289,6 @@ export default function AIAssistant() {
   const generateAIResponse = async (userMessage: string) => {
     setIsLoading(true);
     const sentiment = analyzeSentiment(userMessage);
-    setUserSentiment(sentiment);
 
     try {
       const controller = new AbortController();
@@ -322,7 +321,6 @@ Menu Information:
 - Highlights: ${menuInfo.highlights.join(", ")}
 
 Recent Conversation Context: ${recentContext}
-User Sentiment: ${sentiment}
 
 User Question: ${userMessage}
 
@@ -522,9 +520,11 @@ CRITICAL INSTRUCTIONS:
           aria-label="Open AI Assistant"
           aria-expanded={isOpen}
         >
-          <img
+          <Image
             src="/premuim_logo.png"
             alt="Spicy Town CSG AI"
+            width={32}
+            height={32}
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
           />
           {/* Notification badge */}
@@ -582,9 +582,11 @@ CRITICAL INSTRUCTIONS:
                   className="text-base sm:text-lg font-bold flex items-center gap-2"
                 >
                   <div className="relative">
-                    <img
+                    <Image
                       src="/premuim_logo.png"
                       alt="Logo"
+                      width={24}
+                      height={24}
                       className="w-6 h-6 sm:w-7 sm:h-7 rounded-full ring-2 ring-white/50"
                     />
                     <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-white"></div>
@@ -615,9 +617,11 @@ CRITICAL INSTRUCTIONS:
             <div className="flex-1 overflow-y-auto p-3 sm:p-4 bg-gradient-to-b from-gray-50 to-white relative min-h-0 scroll-smooth">
               {/* Subtle logo watermark */}
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-                <img
+                <Image
                   src="/premuim_logo.png"
                   alt="Background Logo"
+                  width={160}
+                  height={160}
                   className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
                 />
               </div>

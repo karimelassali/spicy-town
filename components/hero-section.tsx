@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
 import Link from "next/link";
+import Image from "next/image";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -17,9 +18,11 @@ export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen w-full overflow-hidden">
       <div className="absolute inset-0 bg-black">
-        <img
-          src="/hero.jpg  "
+        <Image
+          src="/hero.jpg"
           alt="Chef"
+          layout="fill"
+          objectFit="cover"
           className="w-full h-full object-cover "
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30 lg:to-transparent" />

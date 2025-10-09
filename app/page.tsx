@@ -5,7 +5,7 @@ import { SplashScreen } from "@/components/splash-screen";
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
 import { DishesSection } from "@/components/dishes-section";
-import { MenuSection } from "@/components/menu-section";
+
 import { ChefsSection } from "@/components/chefs-section";
 import { VideoSection } from "@/components/video-section";
 import { GallerySection } from "@/components/gallery-section";

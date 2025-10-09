@@ -2,6 +2,8 @@
 
 import { useLanguage } from "@/hooks/use-language";
 
+import Image from "next/image";
+
 export function ChefSection() {
   const { t } = useLanguage();
 
@@ -22,9 +24,11 @@ export function ChefSection() {
           </div>
           <div className="order-1 md:order-2">
             <div className="aspect-[4/5] overflow-hidden rounded-lg">
-              <img
-                src="hero.jpeg"
+              <Image
+                src="/hero.jpeg"
                 alt="Chef Marco"
+                width={500}
+                height={625}
                 className="w-full h-full object-cover"
               />
             </div>

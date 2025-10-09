@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/hooks/use-language";
+import Image from "next/image";
 
 export function GallerySection() {
   const { t } = useLanguage();
@@ -32,9 +33,11 @@ export function GallerySection() {
               key={index}
               className="overflow-hidden rounded-lg hover:shadow-lg transition-shadow"
             >
-              <img
+              <Image
                 src={image || "/placeholder.svg"}
                 alt={`Restaurant ${index + 1}`}
+                width={500}
+                height={500}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 style={{
                   filter: "brightness(1.05) contrast(1.1) saturate(0.85)",

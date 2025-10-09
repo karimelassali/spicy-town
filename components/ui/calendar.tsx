@@ -1,40 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-
+import { cn } from "@/lib/utils";
 // Simple calendar implementation using HTML input
 interface CalendarProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  className?: string
-  toDate?: Date
-  fromDate?: Date
-  initialFocus?: boolean
-  showOutsideDays?: boolean
+  className?: string;
 }
 
-function Calendar({ 
-  className, 
-  toDate, 
-  fromDate, 
-  initialFocus, 
-  showOutsideDays = true, 
-  ...props 
-}: CalendarProps) {
+function Calendar({ className, ...props }: CalendarProps) {
   return (
     <input
       type="date"
       className={cn(
         "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-Calendar.displayName = "Calendar"
+Calendar.displayName = "Calendar";
 
-export { Calendar }
+export { Calendar };

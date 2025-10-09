@@ -30,7 +30,7 @@ export function Navbar() {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <img
+            <Image
               src="/premuim_logo.png"
               alt="Spicy Town Logo"
               width={50}
@@ -57,13 +57,14 @@ export function Navbar() {
               </motion.a>
             ))}
             <LanguageDropdown />
-            <Button 
+            <Button
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={(e) => {
                 e.preventDefault();
-                const reservationSection = document.getElementById('reservation');
+                const reservationSection =
+                  document.getElementById("reservation");
                 if (reservationSection) {
-                  reservationSection.scrollIntoView({ behavior: 'smooth' });
+                  reservationSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
             >
@@ -103,13 +104,14 @@ export function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <Button 
+              <Button
                 className="bg-primary text-primary-foreground hover:bg-primary/90 w-full"
                 onClick={() => {
                   setIsOpen(false);
-                  const reservationSection = document.getElementById('reservation');
+                  const reservationSection =
+                    document.getElementById("reservation");
                   if (reservationSection) {
-                    reservationSection.scrollIntoView({ behavior: 'smooth' });
+                    reservationSection.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
               >
