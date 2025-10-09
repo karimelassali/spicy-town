@@ -16,8 +16,7 @@ export function DishesSection() {
     {
       name: t.dishes.dish2.name,
       description: t.dishes.dish2.description,
-      image:
-        "https://www.cubesnjuliennes.com/wp-content/uploads/2020/01/Chicken-Biryani.jpg",
+      image: "limb_biryani.jpeg",
     },
     {
       name: t.dishes.dish3.name,

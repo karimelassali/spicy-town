@@ -398,7 +398,7 @@ CRITICAL INSTRUCTIONS:
       lowerMessage.includes("open") ||
       lowerMessage.includes("time")
     ) {
-      return "⏰ **Opening Hours:**\n\n📅 Grand Opening: September 20, 2025\n\n🕐 Monday-Saturday: 11:00 AM - 11:00 PM\n🚫 Sunday: Closed\n\nCan't wait to serve you! 🌶️";
+      return "⏰ **Opening Hours:**\n\n📅 Grand Opening: September 20, 2025\n\n🕐 Monday-Sunday: 11:00 AM - 11:00 PM\n\nCan't wait to serve you! 🌶️";
     } else if (
       lowerMessage.includes("halal") ||
       lowerMessage.includes("certified")
