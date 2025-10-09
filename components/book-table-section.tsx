@@ -1,18 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-
-// Define the type for our form values
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  date: string;
-  time: string;
-  guests: string;
-  specialRequests: string;
-};
 
 export default function BookTableSection() {
   return (

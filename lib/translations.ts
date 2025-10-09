@@ -379,6 +379,7 @@ export const translations = {
       location: "جگہ",
       address: "کورسو جیاکومو میٹوٹی، 44",
       city: "کیسٹل سان گیووانی، اٹلی",
+      hours: "کھلنے کے اوقات",
       weekdays: "پیر - اتوار: 11:00 صبح - 11:00 شام",
       weekend: "",
       contact: "ہم سے رابطہ کریں",

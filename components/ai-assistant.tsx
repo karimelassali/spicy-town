@@ -287,7 +287,6 @@ export default function AIAssistant() {
   }, []);
 
   const generateAIResponse = async (userMessage: string) => {
-    setIsLoading(true);
     const sentiment = analyzeSentiment(userMessage);
 
     try {
@@ -321,9 +320,9 @@ Menu Information:
 - Highlights: ${menuInfo.highlights.join(", ")}
 
 Recent Conversation Context: ${recentContext}
+User Sentiment: ${sentiment}
 
 User Question: ${userMessage}
-
 CRITICAL INSTRUCTIONS:
 - Maximum 40-60 words
 - Use 1-2 relevant emojis only
