@@ -18,6 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Spicy Town CSG - Pakistani Cuisine | Castel San Giovanni",
   description: "Spicy Town CSG è il miglior ristorante di cucina pakistana halal a Castel San Giovanni. Specialità in piatti tradizionali pakistani e sapori autentici. Vieni a trovarci!",
+  icons: {
+    icon: "/premuim_logo.png",
+    apple: "/premuim_logo.png",
+  },
   keywords: [
     "Spicy Town CSG",
     "cucina pakistana",
