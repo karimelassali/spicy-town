@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Spicy Town — Grand Opening Countdown</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Confetti -->
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+        <style>
+            :root {
+                --pk-green: #01411c;
+                --spice: #ff6a00;
+                --gold: #cfae60;
+                --cream: #fff9f0;
+                --ink: #0f1216;
+                --muted: #6b7280;
+                --r-lg: 22px;
+                --r-xl: 34px;
+                --shadow: 0 28px 90px rgba(1, 65, 28, 0.18);
+            }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family:
+                    Poppins,
+                    system-ui,
+                    -apple-system,
+                    Segoe UI,
+                    Roboto,
+                    Arial,
+                    sans-serif;
+                min-height: 100vh;
+                overflow: hidden;
+                cursor: none;
+                color: var(--ink);
+                display: grid;
+                place-items: center;
+                padding: 4vmin;
+                background:
+                    radial-gradient(
+                        1000px 480px at 18% 0%,
+                        rgba(1, 65, 28, 0.08),
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        900px 440px at 82% 100%,
+                        rgba(255, 106, 0, 0.06),
+                        transparent 60%
+                    ),
+                    linear-gradient(#fffdf7, var(--cream));
+            }
+            .wrap {
+                width: min(1240px, 92vw);
+                display: grid;
+                place-items: center;
+                gap: 4vmin;
+                text-align: center;
+                z-index: 1;
+            }
+
+            /* Logo badge for white‑background logos */
+            .logo-badge {
+                /*background: var(--pk-green);*/
+                border-radius: 20px;
+                padding: 10px 18px;
+                /*box-shadow: 0 10px 24px rgba(1, 65, 28, 0.22);*/
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .logo-badge img {
+                display: block;
+                height: 20%;
+                width: 20%;
+                border-radius: 90px;
+                background: #fff;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+            }
+
+            .card {
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(1, 65, 28, 0.12);
+                border-radius: var(--r-xl);
+                box-shadow: var(--shadow);
+                padding: clamp(28px, 6.4vmin, 60px) clamp(28px, 7.2vmin, 76px);
+            }
+            .overline {
+                color: var(--gold);
+                text-transform: uppercase;
+                letter-spacing: 0.28em;
+                font-weight: 600;
+                font-size: clamp(13px, 2.1vmin, 18px);
+                margin: 0.2rem 0 0.7rem;
+            }
+            .brand {
+                font-weight: 800;
+                line-height: 1.06;
+                color: var(--pk-green);
+                font-size: clamp(40px, 7.4vmin, 88px);
+                text-shadow: 0 2px 0 rgba(1, 65, 28, 0.14);
+            }
+            .urdu {
+                font-family: "Noto Nastaliq Urdu", serif;
+                direction: rtl;
+                margin-top: 0.2rem;
+                color: var(--spice);
+                font-weight: 600;
+                font-size: clamp(22px, 3.2vmin, 34px);
+            }
+
+            /* Flip-tick numbers centered perfectly inside parent */
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(140px, 1fr));
+                gap: clamp(18px, 3.4vmin, 40px);
+                margin-top: 1rem;
+            }
+            .unit {
+                display: grid;
+                align-content: center;
+                justify-items: center;
+                gap: 0.5rem;
+                min-height: clamp(120px, 18vmin, 200px);
+                padding: clamp(12px, 2.6vmin, 18px);
+                border-radius: 20px;
+                border: 1px solid rgba(1, 65, 28, 0.1);
+                background: linear-gradient(#fff, #fafafa);
+            }
+            .lbl {
+                text-transform: uppercase;
+                letter-spacing: 0.18em;
+                color: var(--muted);
+                font-weight: 600;
+                font-size: clamp(12px, 1.8vmin, 16px);
+            }
+
+            .flip {
+                position: relative;
+                perspective: 1000px;
+                /* Height equals line box so we truly center relative to parent */
+                height: 1.05em;
+                font-variant-numeric: tabular-nums;
+                line-height: 1;
+                letter-spacing: 0.02em;
+                font-weight: 800;
+                color: var(--spice);
+                font-size: clamp(46px, 8.8vmin, 110px);
+                text-shadow: 0 6px 18px rgba(255, 106, 0, 0.28);
+                display: grid;
+                place-items: center;
+            }
+            .flip .top,
+            .flip .bottom,
+            .flip .next {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                /* Center the digit within the flip container */
+                transform: translate(-50%, -50%);
+            }
+            .flip .top {
+                transform-origin: center bottom;
+            }
+            .flip .bottom {
+                transform-origin: center top;
+            }
+            .flip .next {
+                opacity: 0;
+            }
+
+            /* Flip keyframes with centered translate baseline */
+            @keyframes topFlip {
+                0% {
+                    transform: translate(-50%, -50%) rotateX(0);
+                }
+                100% {
+                    transform: translate(-50%, -50%) rotateX(-90deg);
+                }
+            }
+            @keyframes bottomFlip {
+                0% {
+                    transform: translate(-50%, -50%) rotateX(90deg);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translate(-50%, -50%) rotateX(0);
+                    opacity: 1;
+                }
+            }
+            .flip.play .top {
+                animation: topFlip 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            }
+            .flip.play .bottom {
+                animation: bottomFlip 0.32s 0.16s cubic-bezier(0.22, 1, 0.36, 1)
+                    forwards;
+            }
+
+            /* Final 10s suspense (optional keep) */
+            body.suspense {
+                animation: bgPulse 1s ease-in-out infinite alternate;
+            }
+            @keyframes bgPulse {
+                0% {
+                    background-color: transparent;
+                }
+                100% {
+                    background-color: rgba(255, 106, 0, 0.05);
+                }
+            }
+            .shake {
+                animation: shake 0.6s ease-in-out infinite;
+            }
+            @keyframes shake {
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+                25% {
+                    transform: translateX(-2px);
+                }
+                50% {
+                    transform: translateX(2px);
+                }
+                75% {
+                    transform: translateX(-1px);
+                }
+            }
+
+            /* Celebration */
+            .celebrate {
+                display: none;
+                background: rgba(255, 255, 255, 0.96);
+                border: 2px solid var(--gold);
+                border-radius: var(--r-xl);
+                padding: clamp(32px, 7vmin, 80px);
+                box-shadow: var(--shadow);
+                text-align: center;
+            }
+            .celebrate .title {
+                font-weight: 900;
+                font-size: clamp(40px, 7.6vmin, 86px);
+                color: var(--pk-green);
+            }
+            .celebrate .accent {
+                color: orangered;
+            }
+            .celebrate .sub {
+                margin-top: 0.8rem;
+                color: var(--ink);
+                font-size: clamp(18px, 3vmin, 26px);
+                font-weight: 500;
+            }
+
+            @media (max-width: 980px) {
+                .grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .flip.play .top,
+                .flip.play .bottom,
+                body.suspense {
+                    animation: none !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="wrap">
+            <!-- Logo slot (replace src) -->
+            <div class="logo-badge" aria-label="Spicy Town Logo">
+                <img
+                    src="https://spicy-town.vercel.app/premuim_logo.png"
+                    alt="Spicy Town logo"
+                />
+            </div>
+
+            <!-- Countdown Card -->
+            <section
+                id="countdown"
+                class="card"
+                aria-label="Grand Opening Countdown"
+            >
+                <div class="overline">Grand Opening</div>
+                <h1 class="brand">Spicy Town</h1>
+                <div class="urdu" lang="ur" dir="rtl">افتتاح قریب ہے</div>
+
+                <div class="grid" role="group" aria-label="Time remaining">
+                    <div class="unit">
+                        <div class="lbl">Days</div>
+                        <div id="d" class="flip">
+                            <span class="top">00</span
+                            ><span class="bottom">00</span
+                            ><span class="next">00</span>
+                        </div>
+                    </div>
+                    <div class="unit">
+                        <div class="lbl">Hours</div>
+                        <div id="h" class="flip">
+                            <span class="top">00</span
+                            ><span class="bottom">00</span
+                            ><span class="next">00</span>
+                        </div>
+                    </div>
+                    <div class="unit">
+                        <div class="lbl">Minutes</div>
+                        <div id="m" class="flip">
+                            <span class="top">00</span
+                            ><span class="bottom">00</span
+                            ><span class="next">00</span>
+                        </div>
+                    </div>
+                    <div class="unit">
+                        <div class="lbl">Seconds</div>
+                        <div id="s" class="flip">
+                            <span class="top">00</span
+                            ><span class="bottom">00</span
+                            ><span class="next">00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Celebration -->
+            <section id="celebration" class="celebrate" aria-live="polite">
+                <div class="overline">Grand Opening</div>
+                <h2 class="title">
+                    <span class="accent"
+                        ><span style="color: orangered">Spicy</span> Town</span
+                    >
+                    is Now Open!
+                </h2>
+                <p class="sub">
+                    Welcome to an authentic journey of spice, flavor, and
+                    hospitality.
+                </p>
+            </section>
+        </main>
+
+        <!-- Config -->
+        <script>
+            const TARGET_DATE = "2025-10-11T01:23:00"; // YYYY-MM-DDTHH:MM:SS
+            const CONFETTI_DURATION = 9000;
+            const CONFETTI_INTENSITY = 0.85;
+            const CONFETTI_COLORS = [
+                "#01411C",
+                "#CFAE60",
+                "#FFFFFF",
+                "#FF6A00",
+                "#FFA640",
+            ];
+        </script>
+
+        <!-- Logic -->
+        <script>
+            const dEl = document.getElementById("d");
+            const hEl = document.getElementById("h");
+            const mEl = document.getElementById("m");
+            const sEl = document.getElementById("s");
+
+            function pad(n) {
+                return String(n).padStart(2, "0");
+            }
+
+            function playFlip(el, newVal) {
+                const top = el.querySelector(".top");
+                const bottom = el.querySelector(".bottom");
+                const next = el.querySelector(".next");
+                if (top.textContent === newVal) return;
+                next.textContent = newVal;
+                el.classList.remove("play");
+                void el.offsetWidth;
+                el.classList.add("play");
+                setTimeout(() => {
+                    top.textContent = newVal;
+                    bottom.textContent = newVal;
+                }, 320);
+            }
+
+            function setSuspense(on) {
+                document.body.classList.toggle("suspense", !!on);
+                sEl.classList.toggle("shake", !!on);
+            }
+
+            let tmr,
+                celebrated = false;
+
+            function tick() {
+                const now = Date.now();
+                const target = new Date(TARGET_DATE).getTime();
+                const diff = target - now;
+
+                if (diff <= 0) {
+                    clearInterval(tmr);
+                    showCelebration();
+                    return;
+                }
+
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+
+                playFlip(dEl, pad(d));
+                playFlip(hEl, pad(h));
+                playFlip(mEl, pad(m));
+                playFlip(sEl, pad(s));
+
+                setSuspense(d === 0 && h === 0 && m === 0 && s <= 10);
+            }
+
+            function sideStreams() {
+                confetti({
+                    particleCount: Math.round(60 * CONFETTI_INTENSITY),
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.6 },
+                    colors: CONFETTI_COLORS,
+                });
+                confetti({
+                    particleCount: Math.round(60 * CONFETTI_INTENSITY),
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.6 },
+                    colors: CONFETTI_COLORS,
+                });
+            }
+            function centerBurst() {
+                confetti({
+                    particleCount: Math.round(120 * CONFETTI_INTENSITY),
+                    spread: 75,
+                    origin: { y: 0.55 },
+                    colors: CONFETTI_COLORS,
+                });
+            }
+            function celebrate() {
+                if (
+                    window.matchMedia("(prefers-reduced-motion: reduce)")
+                        .matches
+                )
+                    return;
+                const a = setInterval(sideStreams, 800);
+                const b = setInterval(centerBurst, 2000);
+                centerBurst();
+                setTimeout(() => {
+                    clearInterval(a);
+                    clearInterval(b);
+                }, CONFETTI_DURATION);
+            }
+            function showCelebration() {
+                if (celebrated) return;
+                celebrated = true;
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("celebration").style.display = "block";
+                setSuspense(false);
+                celebrate();
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const target = new Date(TARGET_DATE).getTime();
+                if (isNaN(target)) {
+                    console.error("Invalid TARGET_DATE");
+                    return;
+                }
+                if (Date.now() >= target) {
+                    showCelebration();
+                    return;
+                }
+                tick();
+                tmr = setInterval(tick, 1000);
+            });
+        </script>
+
+        <noscript>
+            <div
+                style="
+                    position: fixed;
+                    inset: 0;
+                    display: grid;
+                    place-items: center;
+                    font-family: Poppins, sans-serif;
+                "
+            >
+                <div style="text-align: center">
+                    <h1
+                        style="color: #01411c; font-size: 64px; margin: 0 0 8px"
+                    >
+                        Spicy Town
+                    </h1>
+                    <p style="color: #ff6a00; font-size: 28px; margin: 0 0 6px">
+                        Grand Opening Soon
+                    </p>
+                    <p style="color: #6b7280; font-size: 18px; margin: 0">
+                        Enable JavaScript to see the live countdown.
+                    </p>
+                </div>
+            </div>
+        </noscript>
+    </body>
+</html>

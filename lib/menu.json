@@ -1,0 +1,68 @@
+{
+  "price_range": "€4.00 - €22.00",
+  "highlights": [
+    "Grilled specialties",
+    "Authentic flavors",
+    "Vegetarian options",
+    "Fresh ingredients",
+    "Traditional recipes"
+  ],
+  "categories": [
+    {
+      "name": "ANTIPASTO",
+      "items": [
+        "Onion Rings",
+        "Samosa",
+        "Samosa Chat",
+        "Paneer Pakora",
+        "Mix Veg Pakora",
+        "Chicken Pakora",
+        "Gamberi Pakora",
+        "Fish Pakora",
+        "Antipasto Misto",
+        "Samosa di Carne"
+      ]
+    },
+    {
+      "name": "GRIGLIATA",
+      "items": [
+        "Chicken Tikka",
+        "Tandoori Chicken",
+        "Chicken Malai Tikka",
+        "Chicken Seekh Kebab",
+        "Lamb Seekh Kebab",
+        "Lamb Tikka",
+        "Prawn Tikka",
+        "Mix Grill",
+        "Paneer Tikka",
+        "Mix Veg Platter",
+        "Veg Tikka",
+        "Beef Tikka"
+      ]
+    },
+    {
+      "name": "PIATTI_CARNE",
+      "items": [
+        "Mutton Chops",
+        "Badami Korma",
+        "Chicken Tikka Masala",
+        "Butter Chicken",
+        "Kofta Curry",
+        "Lamb Curry",
+        "Qeema Matar"
+      ]
+    },
+    {
+      "name": "PIATTI_VEGETARIANI",
+      "items": [
+        "Palak Paneer",
+        "Chana Masala",
+        "Aloo Matar",
+        "Dal Makhani",
+        "Aloo Tikki",
+        "Aloo Gobhi",
+        "Daal Tarka"
+      ]
+    }
+  ]
+}
