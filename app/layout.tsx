@@ -147,6 +147,7 @@ export default function RootLayout({
             gtag('config', 'G-2Y60573900');
           `}
         </Script>
+        {/* Structured Data for SEO */}
         <Script
           id="structured-data"
           type="application/ld+json"
